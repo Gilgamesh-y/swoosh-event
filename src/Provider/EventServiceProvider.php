@@ -2,15 +2,15 @@
 
 namespace Src\Event\Provider;
 
-use Src\Event\EventServer;
 use Src\Core\AbstractProvider;
+use Src\Event\EventManager;
 
 class EventServiceProvider extends AbstractProvider
 {
     public function register()
     {
         $this->app->set('event', function () {
-            return new EventServer($this->app);
+            return new EventManager($this->app);
         });
     }
 }
